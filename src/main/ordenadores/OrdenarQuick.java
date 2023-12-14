@@ -8,7 +8,21 @@ public class OrdenarQuick implements Ordenador{
     }
 
     public int quickParticio(int[] array, int inicio, int fim){
-        return 0;
+        int pivo = array[fim];
+        int num = inicio - 1;
+
+        for (int j = inicio; j < fim; j++) {
+            if (array[j] <= pivo) {
+                num++;
+                int temp = array[num+1];
+                array[num+1] = array[fim];
+                array[fim] = temp;
+            }
+        }
+        int temp = array[num +1];
+        array[num +1] = array[fim];
+        array[fim] = temp;
+        return num;
     }
     
 }
